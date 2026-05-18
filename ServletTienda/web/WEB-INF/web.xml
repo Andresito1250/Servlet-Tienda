@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Declaración del archivo XML. -->
+
+<web-app version="5.0"
+         xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                             https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd">
+<!-- Inicio del descriptor web. Define versión y esquema XML usado para Jakarta EE 10 (v5.0). -->
+
+    <!-- Configuración de servlets -->
+    <servlet>
+        <servlet-name>ServletTienda</servlet-name>
+        <servlet-class>Tienda.ServletTienda</servlet-class>
+    </servlet>
+    <!-- Registra el servlet llamado "ServletTienda", indicando su clase Java. -->
+
+    <servlet-mapping>
+        <servlet-name>ServletTienda</servlet-name>
+        <url-pattern>/ServletTienda</url-pattern>
+    </servlet-mapping>
+    <!-- Mapea la URL "/ServletTienda" para que sea manejada por el servlet "ServletTienda". -->
+
+    <servlet>
+        <servlet-name>CompraServlet</servlet-name>
+        <servlet-class>Tienda.ServletCompra</servlet-class>
+    </servlet>
+    <!-- Registra otro servlet, "CompraServlet", de la clase correspondiente. -->
+
+    <servlet-mapping>
+        <servlet-name>CompraServlet</servlet-name>
+        <url-pattern>/CompraServlet</url-pattern>
+    </servlet-mapping>
+    <!-- Mapea la URL "/CompraServlet" al servlet "CompraServlet". -->
+
+    <servlet>
+        <servlet-name>UsuarioCRUDServlet</servlet-name>
+        <servlet-class>Tienda.UsuarioCRUDServlet</servlet-class>
+    </servlet>
+    <!-- Registra el servlet que maneja operaciones CRUD sobre usuarios. -->
+
+    <servlet-mapping>
+        <servlet-name>UsuarioCRUDServlet</servlet-name>
+        <url-pattern>/UsuarioCRUD</url-pattern>
+    </servlet-mapping>
+    <!-- Mapea la URL "/UsuarioCRUD" a "UsuarioCRUDServlet". -->
+
+    <!-- Configuración de páginas de error -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error404.jsp</location>
+    </error-page>
+    <!-- Cuando ocurre un error 404 (página no encontrada), redirige al archivo JSP personalizado. -->
+
+    <!-- Configuración de páginas por defecto -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>login.jsp</welcome-file>
+    </welcome-file-list>
+    <!-- Define archivos que se mostrarán por defecto cuando se accede al sitio raíz. -->
+
+</web-app>
+<!-- Fin del archivo de configuración. -->

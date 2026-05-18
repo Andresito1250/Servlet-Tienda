@@ -1,0 +1,35 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Indica que el contenido está en español -->
+<head>
+    <meta charset="UTF-8"> <!-- Establece la codificación de caracteres como UTF-8 -->
+    <title>Gestión de Cuenta</title> <!-- Título que se muestra en la pestaña del navegador -->
+</head>
+<body> <!-- Cuerpo del documento -->
+
+    <h2>Actualizar cuenta</h2> <!-- Encabezado para la sección de actualización de cuenta -->
+
+    <!-- Formulario para actualizar la cuenta -->
+    <form action="UsuarioCRUD" method="post"> <!-- Envía los datos al servlet UsuarioCRUD usando POST -->
+        <input type="hidden" name="action" value="actualizar"> <!-- Campo oculto que indica la acción a realizar -->
+
+        Correo: <input type="email" name="email" required><br> <!-- Campo para ingresar el correo, obligatorio -->
+        Nuevo nombre: <input type="text" name="nombre"><br> <!-- Campo opcional para cambiar el nombre -->
+        Nueva dirección: <input type="text" name="direccion"><br> <!-- Campo opcional para cambiar la dirección -->
+        Nueva contraseña: <input type="password" name="contrasena"><br> <!-- Campo opcional para cambiar la contraseña -->
+
+        <input type="submit" value="Actualizar"> <!-- Botón que envía el formulario -->
+    </form>
+
+    <h2>Eliminar cuenta</h2> <!-- Encabezado para la sección de eliminación de cuenta -->
+
+    <!-- Formulario para eliminar la cuenta -->
+    <form action="UsuarioCRUD" method="post"> <!-- También envía al servlet UsuarioCRUD por POST -->
+        <input type="hidden" name="action" value="eliminar"> <!-- Campo oculto que indica acción de eliminar -->
+
+        Correo: <input type="email" name="email" required><br> <!-- Campo para ingresar el correo, obligatorio -->
+
+        <input type="submit" value="Eliminar cuenta"> <!-- Botón que envía el formulario para eliminar -->
+    </form>
+
+</body>
+</html>

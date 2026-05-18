@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Define el tipo de documento HTML5 y especifica el idioma español -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registro Tienda de Ropa</title>
+    <!-- Título de la pestaña y codificación UTF-8 para admitir caracteres especiales -->
+
+    <style>
+        /* Estilos visuales para el cuerpo y el formulario */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #74ebd5, #ACB6E5); /* Degradado de fondo */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .form-container {
+            background: #ffffff;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+            position: relative;
+        }
+
+        .alert {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #c3e6cb;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-top: 15px;
+            color: #444;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .password-container {
+            position: relative;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 37px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #007BFF;
+        }
+
+        input[type="submit"] {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenedor del formulario centrado en pantalla -->
+    <div class="form-container" id="form-container">
+        <!-- Aquí se inserta una alerta si es necesario -->
+        <h2>Registro de Usuario</h2>
+
+        <!-- Formulario que se envía al servlet 'ServletTienda' -->
+        <form action="ServletTienda" method="post">
+            <label>Nombre:</label>
+            <input type="text" name="nombre" required>
+
+            <label>Correo:</label>
+            <input type="email" name="email" required>
+
+            <label>Contraseña:</label>
+            <div class="password-container">
+                <input type="password" name="passwd" id="passwd" required>
+                <span class="toggle-password" onclick="togglePassword()">Mostrar</span>
+            </div>
+
+            <label>Dirección:</label>
+            <input type="text" name="direccion" required>
+
+            <input type="submit" value="Entrar">
+        </form>
+    </div>
+
+    <!-- Script para funcionalidades interactivas -->
+    <script>
+        function togglePassword() {
+            // Alterna entre mostrar y ocultar la contraseña
+            var passwdInput = document.getElementById("passwd");
+            var toggle = document.querySelector(".toggle-password");
+            if (passwdInput.type === "password") {
+                passwdInput.type = "text";
+                toggle.textContent = "Ocultar";
+            } else {
+                passwdInput.type = "password";
+                toggle.textContent = "Mostrar";
+            }
+        }
+
+        // Muestra un mensaje si en la URL viene "?mensaje=eliminada"
+        const params = new URLSearchParams(window.location.search);
+        if (params.get("mensaje") === "eliminada") {
+            const alert = document.createElement("div");
+            alert.className = "alert";
+            alert.textContent = "Cuenta eliminada exitosamente";
+            const container = document.getElementById("form-container");
+            container.insertBefore(alert, container.firstChild);
+        }
+    </script>
+</body>
+</html>

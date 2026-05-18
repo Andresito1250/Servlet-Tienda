@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!-- Indica que el documento está escrito en HTML5 -->
+
+<html lang="es">
+<!-- Inicio del documento HTML y se especifica que el idioma es español -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Establece la codificación de caracteres como UTF-8, para admitir caracteres especiales -->
+
+    <title>Catálogo de Productos</title>
+    <!-- Título que aparecerá en la pestaña del navegador -->
+
+    <style>
+        /* Comienzo de los estilos CSS */
+        
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+        /* Estilo del cuerpo: fuente moderna, fondo azul claro, sin márgenes o relleno */
+
+        header {
+            background-color: #ffffff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        /* Encabezado blanco con espacio interno, distribución horizontal y sombra inferior */
+
+        h1 {
+            margin: 0;
+            color: #222;
+        }
+        /* Título principal sin márgenes y con texto en gris oscuro */
+
+        .modificar-btn {
+            padding: 10px 20px;
+            background-color: orange;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        /* Botón de modificación de cuenta: naranja, texto blanco, redondeado y clickeable */
+
+        .catalogo {
+            text-align: center;
+            padding: 20px;
+        }
+        /* Contenedor principal del catálogo: centrado y con relleno */
+
+        .producto {
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px;
+            background-color: #ffffff;
+            display: inline-block;
+            width: 200px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        /* Tarjeta de producto: borde azul, fondo blanco, borde redondeado, sombra y en línea */
+
+        img {
+            width: 150px;
+            height: auto;
+            border-radius: 5px;
+        }
+        /* Imágenes de los productos: ancho fijo, altura automática y bordes suavizados */
+
+        input[type="submit"] {
+            margin-top: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        /* Botón de enviar: verde, texto blanco, redondeado y clickeable */
+
+        input[type="email"] {
+            padding: 5px;
+            width: 90%;
+            margin-top: 8px;
+        }
+        /* Campo de entrada de correo: relleno interno, ancho casi completo y separación superior */
+    </style>
+</head>
+
+<body>
+<!-- Inicio del cuerpo del documento -->
+
+    <header>
+    <!-- Encabezado superior de la página -->
+
+        <h1>Catálogo de Productos</h1>
+        <!-- Título del sitio -->
+
+        <form method="get" action="UsuarioCRUD">
+            <!-- Formulario que redirige al servlet de modificación/eliminación de cuenta -->
+            <button type="submit" class="modificar-btn">Modificar o Eliminar Cuenta</button>
+            <!-- Botón estilizado para acceder a la gestión de cuenta -->
+        </form>
+    </header>
+
+    <div class="catalogo">
+    <!-- Contenedor general del catálogo de productos -->
+
+        <div class="producto">
+            <!-- Primera tarjeta de producto -->
+
+            <h2>Camisa</h2>
+            <!-- Nombre del producto -->
+
+            <img src="imagenes/camisa.jpg" alt="Camisa"/>
+            <!-- Imagen del producto con descripción alternativa -->
+
+            <p>Precio: $50.000</p>
+            <!-- Precio del producto -->
+
+            <form action="CompraServlet" method="post">
+                <!-- Formulario para comprar el producto, usando POST -->
+
+                <input type="hidden" name="producto" value="Camisa">
+                <!-- Campo oculto con el nombre del producto para enviar al servlet -->
+
+                <input type="email" name="email" placeholder="Tu email" required><br>
+                <!-- Campo visible para que el usuario ingrese su email -->
+
+                <input type="submit" value="Agregar">
+                <!-- Botón para enviar el formulario y realizar la compra -->
+            </form>
+        </div>
+
+        <div class="producto">
+            <!-- Segunda tarjeta de producto -->
+
+            <h2>Jean</h2>
+            <img src="imagenes/jean.jpg" alt="Jean"/>
+            <p>Precio: $70.000</p>
+            <form action="CompraServlet" method="post">
+                <input type="hidden" name="producto" value="Jean">
+                <input type="email" name="email" placeholder="Tu email" required><br>
+                <input type="submit" value="Agregar">
+            </form>
+        </div>
+
+        <div class="producto">
+            <!-- Tercera tarjeta de producto -->
+
+            <h2>Zapatos</h2>
+            <img src="imagenes/zapato.jpg" alt="Zapatos"/>
+            <p>Precio: $100.000</p>
+            <form action="CompraServlet" method="post">
+                <input type="hidden" name="producto" value="Zapatos">
+                <input type="email" name="email" placeholder="Tu email" required><br>
+                <input type="submit" value="Agregar">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+<!-- Fin del documento -->
